@@ -48,3 +48,10 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+## Local configuration
+
+Keep real configuration in untracked `.env*` files. Only sanitized
+`.env.example` templates may be committed, and they must use placeholders.
+Ignore rules protect new untracked files; they do not remove secrets already
+committed.
