@@ -13,5 +13,7 @@ An optional second argument changes the port. This server is for local preview
 only, not a hosting or production configuration.
 
 Run `node --test scripts/preview-web.test.cjs` for the disposable fixture checks.
-The preview was checked against the pinned Expo web export via HTTP; browser
-navigation and native devices have not been verified.
+Run `node scripts/movie-home-smoke.cjs` after exporting to check Home, Explore,
+all five direct movie pages, and the missing-movie 404. See the
+[README](../README.md#try-search-and-direct-links) for the interactive browser
+checks. This workflow covers the web export, not native devices.

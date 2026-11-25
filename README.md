@@ -1,64 +1,29 @@
-# Welcome to your Expo app 👋
+# nativeFly
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+nativeFly is an Expo movie discovery demo. It uses a small, fictional catalog bundled with the app, so the preview does not need an API key or account. It does not stream movies or link to streams.
 
-## Get started
+## Review the web demo locally
 
-1. Install dependencies
+From the repository root, install the locked dependencies, export the web app, and start the local preview:
 
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```sh
+npm ci
+npx expo export --platform web --output-dir dist
+node scripts/preview-web.cjs dist
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Open [http://127.0.0.1:4173](http://127.0.0.1:4173). Stop the server with Ctrl+C when finished. See the [local web preview guide](docs/local-web-preview.md) for port options and preview-server tests. This server is for local review, not production hosting.
 
-## Learn more
+### Try search and direct links
 
-To learn more about developing your project with Expo, look at the following resources:
+1. From Home, choose **Browse all movies** to open Explore.
+2. Search for `2024 drama`. The only result should be **Harbour Lights**.
+3. Open **Details for Harbour Lights**. The address ends in `/movie/harbour-lights`.
+4. Reload that address, or open it in a new tab. It should still show the same movie.
+5. Open [a missing movie](http://127.0.0.1:4173/movie/missing). The preview server should return HTTP 404 rather than opening another movie.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Develop locally
 
-## Join the community
+Use `npm run web` if you want the Expo development server instead of the static preview. Routes live in [app](app) and use [Expo Router](https://docs.expo.dev/router/introduction).
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-
-## Local configuration
-
-Keep real configuration in untracked `.env*` files. Only sanitized
-`.env.example` templates may be committed, and they must use placeholders.
-Ignore rules protect new untracked files; they do not remove secrets already
-committed.
-
-## Movie discovery demo
-
-Open the **Explore** tab to search a small, fictional sample catalog by title,
-genre, or year. This demo works without a catalog API and does not stream or
-link to streams. Home opens featured movie details, and each Explore result
-has a direct details link. The old modal route remains for compatibility.
+Keep real configuration in untracked `.env*` files. Only sanitized `.env.example` templates with placeholders may be committed. Ignore rules do not remove files that were already committed.
