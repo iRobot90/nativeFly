@@ -55,3 +55,9 @@ Keep real configuration in untracked `.env*` files. Only sanitized
 `.env.example` templates may be committed, and they must use placeholders.
 Ignore rules protect new untracked files; they do not remove secrets already
 committed.
+
+## Movie discovery demo
+
+Open the **Explore** tab to search a small, fictional sample catalog by title,
+genre, or year. This demo works without a catalog API and does not stream or
+link to movies. Home and the modal still contain Expo starter material.
