@@ -16,3 +16,11 @@ export function findMovies(input: string): Movie[] {
     return terms.every(term => searchText.includes(term));
   });
 }
+
+export function getMovieById(id?: string): Movie | undefined {
+  return movies.find(movie => movie.id === id);
+}
+
+export function movieRouteParams(): { id: string }[] {
+  return movies.map(movie => ({ id: movie.id }));
+}

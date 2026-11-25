@@ -1,3 +1,4 @@
+import { Link } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, TextInput, useColorScheme } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -45,6 +46,9 @@ export default function ExploreScreen() {
               <ThemedText accessibilityRole="header" type="subtitle">{movie.title}</ThemedText>
               <ThemedText type="defaultSemiBold">{movie.year} · {movie.genre}</ThemedText>
               <ThemedText>{movie.description}</ThemedText>
+              <Link href={{ pathname: '/movie/[id]', params: { id: movie.id } }} style={styles.link}>
+                <ThemedText type="link">Details for {movie.title}</ThemedText>
+              </Link>
             </ThemedView>
           ))}
         </ScrollView>
@@ -58,5 +62,6 @@ const styles = StyleSheet.create({
   content: { gap: 12, padding: 24, paddingBottom: 36 },
   input: { minHeight: 48, borderWidth: 1, borderRadius: 10, paddingHorizontal: 12, fontSize: 16 },
   clear: { alignSelf: 'flex-start', minHeight: 44, justifyContent: 'center', borderWidth: 1, borderRadius: 10, paddingHorizontal: 12 },
+  link: { alignSelf: 'flex-start', minHeight: 44, paddingVertical: 10 },
   card: { gap: 6, borderWidth: 1, borderRadius: 12, padding: 14 },
 });

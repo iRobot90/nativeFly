@@ -60,4 +60,5 @@ committed.
 
 Open the **Explore** tab to search a small, fictional sample catalog by title,
 genre, or year. This demo works without a catalog API and does not stream or
-link to movies. Home and the modal still contain Expo starter material.
+link to streams. Home opens featured movie details, and each Explore result
+has a direct details link. The old modal route remains for compatibility.
